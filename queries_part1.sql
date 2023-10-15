@@ -63,12 +63,16 @@ JOIN (
 ) AS tc ON t.nflId = tc.nflId
 JOIN players p ON t.nflId = p.nflId;
 
+
+
 ```
 weighted_missed = (1.1 * 4) * total_missed
 
 weighted_forced = (0.333 * 4) * total_forced
 
 tackle_eff = (tot_tackle - weighted_missed + weighted_forced) * avg_distance
+
+true_total = total_tackle + (tot_assist *0.5) + (tot_force * 0.33) - (tot_wif *4.4)
 ```
 
 ```
